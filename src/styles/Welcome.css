@@ -1,0 +1,45 @@
+.welcome-card {
+  text-align: left;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 9px 16px;
+  margin-bottom: 26px;
+  border: 1px solid rgba(42, 157, 143, 0.16);
+  border-radius: 999px;
+  background: rgba(42, 157, 143, 0.1);
+  color: #1f7f74;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.hero-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 92px;
+  height: 92px;
+  margin-bottom: 30px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #2a9d8f, #49c5b6);
+  color: white;
+  box-shadow: 0 22px 42px rgba(42, 157, 143, 0.3);
+}
+
+.welcome-card h2 {
+  margin-bottom: 26px;
+}
+
+.description {
+  margin-bottom: 34px;
+  color: #5b6878;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.start-button {
+  margin-top: 4px;
+}

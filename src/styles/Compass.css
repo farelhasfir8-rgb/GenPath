@@ -1,0 +1,29 @@
+.card-list {
+  display: grid;
+  gap: 14px;
+}
+
+.compass-card {
+  min-height: auto;
+  padding: 20px;
+  text-align: left;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(42, 157, 143, 0.14);
+  box-shadow: none;
+}
+
+.compass-card:hover {
+  box-shadow: 0 18px 35px rgba(42, 157, 143, 0.14);
+}
+
+.compass-card h2 {
+  margin-bottom: 8px;
+  color: #1f7f74;
+  font-size: 19px;
+}
+
+.compass-card span {
+  color: #647084;
+  line-height: 1.6;
+}

@@ -1,0 +1,27 @@
+.analysis-card {
+  display: grid;
+  gap: 16px;
+}
+
+.analysis-card h2 {
+  margin-top: 10px;
+  color: #1f7f74;
+  font-size: 20px;
+}
+
+.analysis-card p {
+  color: #536172;
+  line-height: 1.8;
+}
+
+.analysis-card button {
+  margin-top: 18px;
+}
+
+.story-box {
+  padding: 18px 20px;
+  border-left: 5px solid #2a9d8f;
+  border-radius: 16px;
+  background: rgba(42, 157, 143, 0.09);
+  color: #304256;
+}
