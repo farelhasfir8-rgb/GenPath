@@ -16,11 +16,12 @@ function Checkpoint({ currentStation, setCurrentStation }: CheckpointProps) {
     playCheckpointSound();
 
     if (currentStation === 4) {
-      navigate("/navigator");
+      navigate("/complete");
       return;
     }
 
     const nextStation = (currentStation + 1) as StationNumber;
+    window.localStorage.setItem("genpath-current-station", String(nextStation));
     setCurrentStation(nextStation);
     navigate("/roadmap");
   };

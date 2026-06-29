@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { roadmapStations, type StationNumber } from "../roadmapStations";
+import { getActiveJourney } from "../journey";
+import type { StationNumber } from "../roadmapStations";
 
 type StationDetailProps = {
   currentStation: StationNumber;
@@ -28,10 +29,11 @@ const stationIllustrations: Record<StationNumber, { src: string; alt: string }> 
 
 function StationDetail({ currentStation }: StationDetailProps) {
   const navigate = useNavigate();
+  const journey = getActiveJourney();
   const station =
-    roadmapStations.find(
+    journey.stations.find(
       (roadmapStation) => roadmapStation.number === currentStation,
-    ) ?? roadmapStations[0];
+    ) ?? journey.stations[0];
   const illustration = stationIllustrations[currentStation];
 
   const [task1, setTask1] = useState(false);

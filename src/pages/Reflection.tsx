@@ -7,6 +7,15 @@ function Reflection() {
   const navigate = useNavigate();
   const [story, setStory] = useState("");
 
+  const submitReflection = () => {
+    window.localStorage.setItem("genpath-last-reflection", story);
+    window.localStorage.setItem("genpath-current-station", "1");
+    window.dispatchEvent(new Event("genpath-reset-station"));
+    navigate("/analysis", {
+      state: { story },
+    });
+  };
+
   return (
     <main className="reflection-page app-shell">
       <motion.section
@@ -29,11 +38,7 @@ function Reflection() {
         />
 
         <button
-          onClick={() =>
-            navigate("/analysis", {
-              state: { story },
-            })
-          }
+          onClick={submitReflection}
         >
           Analisis Ceritaku -&gt;
         </button>

@@ -25,3 +25,54 @@
   background: rgba(42, 157, 143, 0.09);
   color: #304256;
 }
+
+.journey-selection {
+  display: grid;
+  gap: 8px;
+  padding: 18px 20px;
+  border: 1px solid rgba(233, 196, 106, 0.32);
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(233, 196, 106, 0.16), rgba(255, 255, 255, 0.58)),
+    rgba(255, 255, 255, 0.42);
+  box-shadow: 0 16px 34px rgba(23, 32, 51, 0.07);
+}
+
+.journey-selection span {
+  color: #7c5b16;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.journey-selection strong {
+  color: #1f7f74;
+  font-size: 20px;
+}
+
+.insight-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.insight-grid div {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid rgba(42, 157, 143, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.insight-grid strong {
+  color: #1f7f74;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.insight-grid span {
+  color: #304256;
+  line-height: 1.55;
+}

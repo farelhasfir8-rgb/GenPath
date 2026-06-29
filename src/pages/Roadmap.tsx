@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { roadmapStations, type StationNumber } from "../roadmapStations";
+import { getActiveJourney } from "../journey";
+import type { StationNumber } from "../roadmapStations";
 import "../styles/Roadmap.css";
 
 type RoadmapProps = {
@@ -9,6 +10,8 @@ type RoadmapProps = {
 
 function Roadmap({ currentStation }: RoadmapProps) {
   const navigate = useNavigate();
+  const journey = getActiveJourney();
+  const stations = journey.stations;
 
   return (
     <main className="roadmap-page app-shell">
@@ -18,7 +21,8 @@ function Roadmap({ currentStation }: RoadmapProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <h1>Jalur Masa Depanku</h1>
+        <span className="badge">{journey.label}</span>
+        <h1>Jalur Perjalananmu</h1>
 
         <p>
           Berikut langkah-langkah yang direkomendasikan GenPath berdasarkan
@@ -26,7 +30,7 @@ function Roadmap({ currentStation }: RoadmapProps) {
         </p>
 
         <div className="timeline">
-          {roadmapStations.map((station) => (
+          {stations.map((station) => (
             <motion.div
               key={station.number}
               initial={{ opacity: 0, x: -14 }}

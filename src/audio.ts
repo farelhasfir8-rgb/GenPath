@@ -1,6 +1,7 @@
 let audioContext: AudioContext | null = null;
 let musicTimer: number | null = null;
 let musicStep = 0;
+const musicVolume = 0.35;
 
 const getAudioContext = () => {
   audioContext ??= new AudioContext();
@@ -48,17 +49,32 @@ export const playCheckpointSound = () => {
 export const startMusic = () => {
   if (musicTimer !== null) return;
 
-  const notes = [261.63, 329.63, 392, 493.88, 440, 392, 329.63, 293.66];
+  const melody = [
+    523.25, 659.25, 783.99, 880, 783.99, 659.25, 587.33, 659.25, 698.46,
+    880, 987.77, 880, 783.99, 659.25, 587.33, 523.25,
+  ];
+  const harmony = [261.63, 349.23, 392, 329.63];
 
   const tick = () => {
-    const note = notes[musicStep % notes.length];
-    playTone(note, 0.58, 0.018, "sine");
-    playTone(note / 2, 0.62, 0.012, "triangle");
+    const note = melody[musicStep % melody.length];
+    const chordRoot = harmony[Math.floor(musicStep / 4) % harmony.length];
+
+    playTone(note, 0.34, 0.09 * musicVolume, "triangle");
+
+    if (musicStep % 2 === 0) {
+      playTone(note * 1.5, 0.22, 0.028 * musicVolume, "sine");
+    }
+
+    if (musicStep % 4 === 0) {
+      playTone(chordRoot, 1.35, 0.052 * musicVolume, "sine");
+      playTone(chordRoot * 1.5, 1.25, 0.032 * musicVolume, "triangle");
+    }
+
     musicStep += 1;
   };
 
   tick();
-  musicTimer = window.setInterval(tick, 620);
+  musicTimer = window.setInterval(tick, 360);
 };
 
 export const stopMusic = () => {
@@ -66,4 +82,3 @@ export const stopMusic = () => {
   window.clearInterval(musicTimer);
   musicTimer = null;
 };
-
